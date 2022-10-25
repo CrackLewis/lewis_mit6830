@@ -30,7 +30,17 @@ public enum Type implements Serializable {
             }
         }
 
-    }, STRING_TYPE() {
+        @Override
+        public int typeId() {
+            return 1;
+        }
+
+        @Override
+        public String toString() {
+            return "INT";
+        }
+    },
+    STRING_TYPE() {
         @Override
         public int getLen() {
             return STRING_LEN + 4;
@@ -47,6 +57,16 @@ public enum Type implements Serializable {
             } catch (IOException e) {
                 throw new ParseException("couldn't parse", 0);
             }
+        }
+
+        @Override
+        public int typeId() {
+            return 2;
+        }
+
+        @Override
+        public String toString() {
+            return "STRING";
         }
     };
 
@@ -66,4 +86,5 @@ public enum Type implements Serializable {
      */
     public abstract Field parse(DataInputStream dis) throws ParseException;
 
+    public abstract int typeId();
 }

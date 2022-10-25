@@ -4,6 +4,8 @@ jdk-11.0.2
 simple-db-hw-2022
 # Ant build tool
 apache-ant-1.10.12
+# VSCode configs
+.vscode
 
 # Java Libraries
 lib
